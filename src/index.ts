@@ -1,26 +1,33 @@
-import { NativeModulesProxy, EventEmitter, Subscription } from 'expo-modules-core';
+import { MerchantCapability, PaymentNetwork, CompleteStatus, PaymentData } from "./ExpoApplePay.types";
+import ExpoApplePayModule from "./ExpoApplePayModule";
 
-// Import the native module. On web, it will be resolved to ExpoApplePay.web.ts
-// and on native platforms to ExpoApplePay.ts
-import ExpoApplePayModule from './ExpoApplePayModule';
-import ExpoApplePayView from './ExpoApplePayView';
-import { ChangeEventPayload, ExpoApplePayViewProps } from './ExpoApplePay.types';
+export default {
+  show: (data: {
+    merchantIdentifier: string;
+    countryCode: string;
+    currencyCode: string;
+    merchantCapabilities: MerchantCapability[];
+    supportedNetworks: PaymentNetwork[];
+    paymentSummaryItems: {
+      label: string;
+      amount: number;
+    }[];
+  }): Promise<PaymentData> => {
+    return ExpoApplePayModule.show({
+      ...data,
+      paymentSummaryItems: data.paymentSummaryItems.map((item) => ({
+        label: item.label,
+        amount: item.amount.toString(),
+      })),
+    });
+  },
 
-// Get the native constant value.
-export const PI = ExpoApplePayModule.PI;
+  dismiss: () => {
+    ExpoApplePayModule.dismiss();
+  },
+  complete: (status: CompleteStatus) => {
+    ExpoApplePayModule.complete(status);
+  },
+};
 
-export function hello(): string {
-  return ExpoApplePayModule.hello();
-}
-
-export async function setValueAsync(value: string) {
-  return await ExpoApplePayModule.setValueAsync(value);
-}
-
-const emitter = new EventEmitter(ExpoApplePayModule ?? NativeModulesProxy.ExpoApplePay);
-
-export function addChangeListener(listener: (event: ChangeEventPayload) => void): Subscription {
-  return emitter.addListener<ChangeEventPayload>('onChange', listener);
-}
-
-export { ExpoApplePayView, ExpoApplePayViewProps, ChangeEventPayload };
+export { MerchantCapability, PaymentNetwork };

@@ -1,5 +1,28 @@
-import { requireNativeModule } from 'expo-modules-core';
+import {
+  MerchantCapability,
+  PaymentNetwork,
+  CompleteStatus,
+} from "./ExpoApplePay.types";
 
-// It loads the native module object from the JSI or falls back to
-// the bridge module (from NativeModulesProxy) if the remote debugger is on.
-export default requireNativeModule('ExpoApplePay');
+export default {
+  show: async (_: {
+    merchantIdentifier: string;
+    countryCode: string;
+    currencyCode: string;
+    merchantCapabilities: MerchantCapability[];
+    supportedNetworks: PaymentNetwork[];
+    paymentSummaryItems: {
+      label: string;
+      amount: string;
+    }[];
+  }) => {
+    console.log("noop");
+    return Promise.reject("noop");
+  },
+  dismiss: () => {
+    console.log("noop");
+  },
+  complete: (_: CompleteStatus) => {
+    console.log("noop");
+  },
+};

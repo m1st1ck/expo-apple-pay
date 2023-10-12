@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "expo-apple-pay",
+    "slug": "expo-apple-pay",
+    "version": "0.1.0",
+    "description": "Apple pay integration for Expo",
+    "sdkVersion": "49.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}
