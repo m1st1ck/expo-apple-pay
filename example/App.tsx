@@ -3,8 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import ExpoApplePay, {
   MerchantCapability,
   PaymentNetwork,
+  CompleteStatus,
 } from "expo-apple-pay";
-import { CompleteStatus } from "expo-apple-pay/ExpoApplePay.types";
 
 export default function App() {
   return (
@@ -19,14 +19,14 @@ export default function App() {
             paymentSummaryItems: [
               {
                 label: "Ice",
-                amount: 0.51,
+                amount: 0.01,
               },
               {
-                label: "Total",
-                amount: 0.51,
+                label: "Expo",
+                amount: 0.01,
               },
             ],
-            merchantIdentifier: "merchant...",
+            merchantIdentifier: "merchant.",
           })
             .then((paymentData) => {
               console.log(paymentData);
@@ -37,6 +37,7 @@ export default function App() {
             })
             .catch((err) => {
               console.log(err);
+              ExpoApplePay.complete(CompleteStatus.failure);
             });
         }}
       >

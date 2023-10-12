@@ -60,6 +60,7 @@ You can pass props to the plugin config object to configure:
 import ExpoApplePay, {
   MerchantCapability,
   PaymentNetwork,
+  CompleteStatus,
 } from "expo-apple-pay";
 ```
 
@@ -78,7 +79,7 @@ ExpoApplePay.show({
             amount: 0.51,
         },
         {
-            label: "Total",
+            label: "Expo",
             amount: 0.51,
         },
     ],
