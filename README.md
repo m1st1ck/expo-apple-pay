@@ -22,7 +22,7 @@ Apple has a documentation on how to do this in their _[Configuring your Environm
     [
       "expo-apple-pay",
       {
-        "merchantIdentifiers": "merchant.",
+        "merchantIdentifiers": ["merchant."],
       }
     ]
   ]
@@ -39,7 +39,7 @@ export default {
     [
       "expo-apple-pay",
       {
-        merchantIdentifiers: "merchant.",
+        merchantIdentifiers: ["merchant."],
       }
     ]
   ]
