@@ -1,6 +1,6 @@
 {
   "name": "@m1st1ck/expo-apple-pay",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Apple pay integration for Expo",
   "main": "build/index.js",
   "types": "build/index.d.ts",

@@ -22,7 +22,7 @@ Apple has a documentation on how to do this in their _[Configuring your Environm
     [
       "expo-apple-pay",
       {
-        "merchantIdentifier": "merchant.",
+        "merchantIdentifiers": "merchant.",
       }
     ]
   ]
@@ -39,7 +39,7 @@ export default {
     [
       "expo-apple-pay",
       {
-        merchantIdentifier: "merchant.",
+        merchantIdentifiers: "merchant.",
       }
     ]
   ]
@@ -51,7 +51,7 @@ You can pass props to the plugin config object to configure:
 
 | Plugin Prop|||
 |---------------------|----------|-----------------------------------------|
-| `merchantIdentifier` | **required** | The merchant identifier you registered with Apple for use with Apple Pay.
+| `merchantIdentifiers` | **required** | The merchant identifiers you registered with Apple for use with Apple Pay.
 ||||
 
 ## Usage
