@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-npx expo install expo-location
+npx expo install @m1st1ck/expo-apple-pay
 ```
 
 ## Setting up Apple Pay
